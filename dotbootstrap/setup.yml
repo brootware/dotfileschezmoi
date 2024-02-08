@@ -4,9 +4,6 @@
   become: true
   connection: local
   gather_facts: true
-  vars:
-    flyctl_version: "0.1.130"
-    pulumi_version: "v3.94.2"
 
   tasks:
     - name: Get my user
@@ -19,11 +16,11 @@
         name:
           - zsh
           - htop
-          - poetry
+          - python3-poetry
           - ripgrep
           - fd-find
-          - solar/jammy
-          - logiops/jammy
+          - solaar
+          - logiops
           - gnome-shell-extensions
           - earlyoom
           - virtualbox
