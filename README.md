@@ -1,4 +1,5 @@
 # dotfiles
+
 Automated dotfiles installation with [Chezmoi](https://chezmoi.io) as my [original dotfiles](https://github.com/brootware/dotfilesmini) is a little messy. Inspired by https://github.com/logandonley/dotfiles/tree/main.
 Currently only configured for Ubuntu machines.
 
