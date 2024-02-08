@@ -1,30 +1,7 @@
 #!/bin/bash
 
 # .bootstrap/ubuntu_setup.yml hash: {{ include "dotbootstrap/ubuntu_setup.yml" | sha256sum }}
-# .bootstrap/mac_setup.yml hash: {{ include "dotbootstrap/mac_setup.yml" | sha256sum }}
 
-install_on_ubuntu(){
 if command -v ansible-playbook &> /dev/null; then
     ansible-playbook {{ joinPath .chezmoi.sourceDir "dotbootstrap/ubuntu_setup.yml" | quote }} --ask-become-pass
 fi
-}
-
-install_on_mac(){
-if command -v ansible-playbook &> /dev/null; then
-    ansible-playbook {{ joinPath .chezmoi.sourceDir "dotbootstrap/mac_setup.yml" | quote }} --ask-become-pass
-fi
-}
-
-OS="$(uname -s)"
-case "${OS}" in
-Linux*)
-	install_on_ubuntu
-	;;
-Darwin*)
-    install_on_mac
-    ;;
-*)
-	echo "Unsupported operating system: ${OS}"
-	exit 1
-	;;
-esac
